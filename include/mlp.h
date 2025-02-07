@@ -14,9 +14,7 @@ typedef struct {
     double *bias_output;
 } MLP;
 
-MLP mlp_init(size_t input, size_t hidden, size_t output);
-// switch for efficiency, return by value fine for now
-// MLP *mlp_init(size_t input, size_t hidden, size_t output);
+MLP *mlp_init(size_t input, size_t hidden, size_t output);
 void free_mlp(MLP *mlp);
 
 #endif

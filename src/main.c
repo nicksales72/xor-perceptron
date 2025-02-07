@@ -9,21 +9,21 @@ int main(int argc, char **argv) {
   size_t hidden_nodes = 2;
   size_t output_nodes = 1;
 
-  MLP mlp = mlp_init(input_nodes, hidden_nodes, output_nodes);
+  MLP *mlp = mlp_init(input_nodes, hidden_nodes, output_nodes);
 
   for (int i = 0; i < input_nodes; i++) {
-    for (int j = 0; j < output_nodes; j++) {
-      printf("w_ih[%d][%d] = %f\n", i, j, mlp.weights_input_hidden[i * hidden_nodes + j]);
+    for (int j = 0; j < hidden_nodes; j++) {
+      printf("w_ih[%d][%d] = %f\n", i, j, mlp->weights_input_hidden[i * hidden_nodes + j]);
     }
   }
 
   for (int i = 0; i < hidden_nodes; i++) {
     for (int j = 0; j < output_nodes; j++) {
-      printf("w_ho[%d][%d] = %f\n", i, j, mlp.weights_hidden_output[i * output_nodes + j]);
+      printf("w_ho[%d][%d] = %f\n", i, j, mlp->weights_hidden_output[i * output_nodes + j]);
     }
   }
 
-  free_mlp(&mlp);
+  free_mlp(mlp);
   
   return 0;
 }
