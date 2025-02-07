@@ -20,11 +20,11 @@ double sigmoid(double x) {
 }
 
 double sigmoid_derivative(double x) {
-  // [-1,1]
   return exp(-x) / ((1.0 + exp(-x)) * (1.0 + exp(-x)));
 }
 
 double random_double() {
+  // [-1,1]
   return ((double)rand() / RAND_MAX) * 2 - 1;
 }
 
