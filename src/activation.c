@@ -5,7 +5,7 @@ double sigmoid_activation(double x) {
 }
 
 double sigmoid_derivative(double x) {
-  double sig = sigmoid(x);
+  double sig = sigmoid_activation(x);
   return sig * (1 - sig); // apparently more efficient than my derivative done by hand?????? skill issue
   // return exp(-x) / ((1.0 + exp(-x)) * (1.0 + exp(-x)));
 }
@@ -18,7 +18,7 @@ double relu_derivative(double x) {
   return x > 0 ? 1 : 0;
 }
 
-double tanh_activation(double x); {
+double tanh_activation(double x) {
   return tanh(x);
 }
 
