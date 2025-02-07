@@ -23,6 +23,14 @@ int main(int argc, char **argv) {
     }
   }
 
+  for (int i = 0; i < hidden_nodes; i++) {
+    printf("b_h[%d] = %f\n", i, mlp->bias_hidden[i]);
+  }
+
+  for (int i = 0; i < output_nodes; i++) {
+    printf("b_o[%d] = %f\n", i, mlp->bias_output[i]);
+  }
+
   free_mlp(mlp);
   
   return 0;
