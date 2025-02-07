@@ -1,8 +1,8 @@
 CC = clang
-CFLAGS = -Wall -I../include  
+CFLAGS = -Wall -I/include  
 LDFLAGS = -lm
 TARGET = main
-SRC = main.c activation.c utils.c mlp.c
+SRC = src/*
 
 all: $(TARGET)
 

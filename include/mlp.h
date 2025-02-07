@@ -15,7 +15,7 @@ typedef struct {
 } MLP;
 
 MLP mlp_init(size_t input, size_t hidden, size_t output);
-// switch to for efficiency
+// switch for efficiency, return by value fine for now
 // MLP *mlp_init(size_t input, size_t hidden, size_t output);
 void free_mlp(MLP *mlp);
 
