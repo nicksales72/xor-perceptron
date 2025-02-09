@@ -1,7 +1,10 @@
 #include "../include/mlp.h"
+#include "../include/activation.h"
 #include "../include/utils.h"
 
-MLP *mlp_init(size_t input, size_t hidden, size_t output) {
+MLP *mlp_init(size_t input, size_t hidden, size_t output) {  
+  init_random();
+  
   MLP *mlp = (MLP *)malloc(sizeof(MLP));
   if (!mlp) {
     fprintf(stderr, "malloc failed\n");
@@ -39,6 +42,42 @@ MLP *mlp_init(size_t input, size_t hidden, size_t output) {
   for (int i = 0; i < output; i++) mlp->bias_output[i] = random_double();
 
   return mlp;
+}
+
+void mlp_forward(MLP *mlp, double *input, double *output) {
+  double *hidden = (double *)malloc(mlp->hidden_nodes * sizeof(double));
+  if(!hidden) {
+    fprintf(stderr, "hidden activation malloc failed");
+    exit(1);
+  }
+
+  for (int i = 0; i < mlp->hidden_nodes; i++) {
+    hidden[i] = 0.0;
+    for (int j = 0; j < mlp->input_nodes; j++) {
+      hidden[i] += input[j] * mlp->weights_input_hidden[j * mlp->hidden_nodes + i];
+    }
+    hidden[i] += mlp->bias_hidden[i];
+    hidden[i] = sigmoid_activation(hidden[i]);
+  }
+
+  for (int i = 0; i < mlp->output_nodes; i++) {
+    output[i] = 0.0;
+    for (int j = 0; j < mlp->hidden_nodes; j++) {
+      output[i] += hidden[j] * mlp->weights_hidden_output[j * mlp->output_nodes + i];
+    }
+    output[i] += mlp->bias_output[i];
+    output[i] = sigmoid_activation(output[i]); // change to softmax later
+  }
+  
+  for(int i = 0; i < mlp->hidden_nodes; i++) {
+    printf("hidden[%d] = %f\n", i, hidden[i]);
+  }
+
+  for(int i = 0; i < mlp->output_nodes; i++) {
+    printf("output[%d] = %f\n", i, output[i]);
+  }
+
+  free(hidden);
 }
 
 void free_mlp(MLP *mlp) {
