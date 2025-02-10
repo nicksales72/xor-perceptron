@@ -4,7 +4,7 @@ int main(int argc, char **argv) {
   size_t input_nodes = 2;
   size_t hidden_nodes = 2;
   size_t output_nodes = 1;
-  double input[] = {0.5, -0.3};
+  double input[] = {0, 1};
   double output[1];
 
   MLP *mlp = mlp_init(input_nodes, hidden_nodes, output_nodes);

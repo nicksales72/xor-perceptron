@@ -66,7 +66,7 @@ void mlp_forward(MLP *mlp, double *input, double *output) {
       output[i] += hidden[j] * mlp->weights_hidden_output[j * mlp->output_nodes + i];
     }
     output[i] += mlp->bias_output[i];
-    output[i] = sigmoid_activation(output[i]); // change to softmax later
+    output[i] = sigmoid_activation(output[i]); 
   }
   
   for(int i = 0; i < mlp->hidden_nodes; i++) {

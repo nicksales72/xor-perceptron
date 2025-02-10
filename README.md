@@ -1,6 +1,6 @@
 # perceptron-c
-This is a multilayer perceptron built in the glorious C programming language made by the 
-beautiful Dennis Ritchie.
+This is a multilayer perceptron designed for learning the XOR dataset built in the glorious C programming
+language made by the beautiful Dennis Ritchie.
 
 # What it does rn
 - Initializes a neural network with random weights and biases (mlp struct).
@@ -8,14 +8,12 @@ beautiful Dennis Ritchie.
 layer.
 
 # Need to do
-- Dataset handling (will begin with xor I think).
+- Dataset handling for XOR.
 - Implement backpropagation.
-  - Add an option for mlp->task_type (regression, binary and multi-class classification);
-    - Loss for regression will be MSE, binary will be BCE, and multi will be CCE.
-- Add softmax and linear activation functions.
-- Later: Change random weight and bias init to using both xavier and he:
-  - Xavier for tanh and sigmoid;
-  - He for relu.
+  - Loss will be binary cross entropy.
+- Later: 
+  - Xavier for weight and bias initialization.
+  - Extend the MLP into learning regression and multi-class problems.
 
 # Usage
 None yet!
