@@ -1,5 +1,4 @@
 #include "../include/mlp.h"
-#include "../include/activation.h"
 #include "../include/utils.h"
 
 MLP *mlp_init(size_t input, size_t hidden, size_t output) {  
@@ -44,7 +43,7 @@ MLP *mlp_init(size_t input, size_t hidden, size_t output) {
   return mlp;
 }
 
-void mlp_forward(MLP *mlp, int *input, double *output) {
+void mlp_forward(MLP *mlp, double *input, double *output) {
   double *hidden = (double *)malloc(mlp->hidden_nodes * sizeof(double));
   if(!hidden) {
     fprintf(stderr, "hidden activation malloc failed");
