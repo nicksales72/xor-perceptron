@@ -15,7 +15,7 @@ typedef struct {
 } MLP;
 
 MLP *mlp_init(size_t input, size_t hidden, size_t output);
-void mlp_forward(MLP *mlp, double *input, double *output);
+void mlp_forward(MLP *mlp, int *input, double *output);
 void free_mlp(MLP *mlp);
 
 #endif

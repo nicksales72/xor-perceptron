@@ -1,10 +1,11 @@
 #include "../include/mlp.h"
+#include "../include/utils.h"
 
 int main(int argc, char **argv) {
+  int (*input)[COLS] = read_xor("/home/nick/Programming/perceptron-c/datasets/Xor_Dataset.csv");
   size_t input_nodes = 2;
   size_t hidden_nodes = 2;
   size_t output_nodes = 1;
-  double input[] = {0, 1};
   double output[1];
 
   MLP *mlp = mlp_init(input_nodes, hidden_nodes, output_nodes);
@@ -29,9 +30,10 @@ int main(int argc, char **argv) {
     printf("bias_output[%d] = %f\n", i, mlp->bias_output[i]);
   }
 
-  mlp_forward(mlp, input, output);
+  int temp_input[] = {0, 1};
+  mlp_forward(mlp, temp_input, output);
   
   free_mlp(mlp);
-  
+
   return 0;
 }
