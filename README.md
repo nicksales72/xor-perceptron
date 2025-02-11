@@ -4,7 +4,7 @@ language made by the beautiful Dennis Ritchie.
 
 # What it does
 - Reads XOR dataset and stores it into a 2D array.
-- Initialzes an MLP struct with 2 input, 2 hidden layers, and 1 output layer.
+- Initialzes an MLP struct with 2 input nodes, 2 hidden layers, and 1 output node.
   - The weights are initialzed with Xavier.
   - Biases are initalized at 0.1.
 - Trains the MLP with an epoch of 10000 and learning rate of 0.05.
