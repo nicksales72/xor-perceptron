@@ -1,6 +1,5 @@
 #include "../include/utils.h"
 
-// temporary
 void init_random() {
   static int seeded = 0;
   if (!seeded) {
@@ -9,18 +8,15 @@ void init_random() {
   }
 }
 
-double random_double() {
-  // [-1, 1]
-  return ((double)rand() / RAND_MAX) * 2 - 1;
+double xavier_init(double in, double out) {
+  return ((double)rand() / RAND_MAX - 0.5) * sqrt(2.0 / (in + out));
 }
 
-double binary_cross_entropy(int y_true, int y_pred) {
-  // avoids log(0)
+double binary_cross_entropy(double y_true, double y_pred) {
   const double epsilon = 1e-9;
-  y_pred = fmax(epsilon, fmin(1.0 - epsilon, y_pred));
+  double clipped_pred = fmax(epsilon, fmin(1.0 - epsilon, y_pred));
 
-  // BCE = -(ylog(p) + (1 - y) * log(1 - p))
-  return -((y_true * log(y_pred)) + (1.0 - y_true) * log(1.0 - y_pred));
+  return -((y_true * log(clipped_pred)) + (1.0 - y_true) * log(1.0 - clipped_pred));
 }
 
 double (*read_xor(const char *filename))[COLS] {  
@@ -49,9 +45,7 @@ double sigmoid_activation(double x) {
   return 1.0 / (1.0 + exp(-x));
 }
 
-double sigmoid_derivative(double x) {
-  double sig = sigmoid_activation(x);
-  return sig * (1 - sig); // apparently more efficient than my derivative done by hand?????? skill issue
-  // return exp(-x) / ((1.0 + exp(-x)) * (1.0 + exp(-x)));
+double sigmoid_derivative(double sig) {
+  return sig * (1.0 - sig);
 }
 

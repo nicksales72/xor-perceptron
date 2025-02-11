@@ -1,19 +1,17 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#define ROWS 10000
+#define COLS 3
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
 
-#define ROWS 10000
-#define COLS 3
-
-// temp
 void init_random();
-
-double random_double();
-double binary_cross_entropy(int y_true, int y_pred);
+double xavier_init(double in, double out);
+double binary_cross_entropy(double y_true, double y_pred);
 double (*read_xor(const char *filename))[COLS];
 
 // Activation stuff
