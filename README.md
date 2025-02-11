@@ -3,6 +3,7 @@ This is a multilayer perceptron designed for learning the XOR dataset built in t
 language made by the beautiful Dennis Ritchie.
 
 # Need to do
+- Efficiency/clean up code.
 - Later: 
   - Extend the MLP into learning regression and multi-class problems.
 
