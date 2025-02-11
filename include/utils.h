@@ -16,7 +16,7 @@ double (*read_xor(const char *filename))[COLS];
 
 // Activation stuff
 double sigmoid_activation(double x);
-double sigmoid_derivative(double x);
+double sigmoid_derivative(double sig);
 
 #endif
 
