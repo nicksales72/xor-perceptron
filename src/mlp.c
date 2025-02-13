@@ -97,7 +97,6 @@ void mlp_backward(MLP *mlp, double input[COLS], double *hidden, double *output, 
   for (int i = 0; i < mlp->hidden_nodes; i++) {
     mlp->bias_hidden[i] -= learning_rate * error_hidden[i];
   }
-
   mlp->bias_output[0] -= learning_rate * error_output;
 
   free(error_hidden);

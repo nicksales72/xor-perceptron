@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = -Wall -Iinclude  
+CFLAGS = -Wall
 LDFLAGS = -lm
 TARGET = main
 SRC = $(wildcard src/*.c)
