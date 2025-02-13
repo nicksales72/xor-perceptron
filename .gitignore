@@ -1,0 +1,9 @@
+*
+
+!*/
+!*.h
+!*.c
+!*.csv
+!.gitignore
+!Makefile
+!README.md
