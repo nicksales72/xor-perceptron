@@ -1,6 +1,5 @@
-# perceptron-c
-This is a multilayer perceptron designed for learning the XOR dataset built in the glorious C programming
-language made by the beautiful Dennis Ritchie.
+# xor-perceptron-c
+This is a multilayer perceptron designed for learning the XOR dataset built in the glorious C programming language made by the beautiful Dennis Ritchie.
 
 # What it does
 - Reads XOR dataset and stores it into a 2D array.
@@ -13,9 +12,8 @@ language made by the beautiful Dennis Ritchie.
 - Frees memory correctly (I think).
 
 # Need to do
-- Efficiency/clean up code.
-- Later: 
-  - Extend the MLP into learning regression and multi-class problems.
+- Add a way to save weights after training.
+    - Load weights and dataset option.
 
 # Usage
 ```shell

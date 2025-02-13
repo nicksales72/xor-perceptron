@@ -1,5 +1,5 @@
-#include "../include/mlp.h"
-#include "../include/utils.h"
+#include "mlp.h"
+#include "utils.h"
 
 MLP *mlp_init(size_t input, size_t hidden, size_t output) {  
   init_random();

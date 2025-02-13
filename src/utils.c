@@ -1,4 +1,4 @@
-#include "../include/utils.h"
+#include "utils.h"
 
 void init_random() {
   static int seeded = 0;
@@ -25,7 +25,7 @@ double (*read_xor(const char *filename))[COLS] {
   FILE *file = fopen(filename, "r");
   if (!file) {
     perror("couldnt open file");
-    return NULL;
+    exit(EXIT_FAILURE);
   }
 
   for (int i = 0; i < ROWS; i++) {

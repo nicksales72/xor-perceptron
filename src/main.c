@@ -1,22 +1,23 @@
-#include "../include/mlp.h"
-#include "../include/utils.h"
+#include "mlp.h"
+#include "utils.h"
 
-int main(int argc, char **argv) {
+int main(void) {
   size_t input_nodes = 2;
   size_t hidden_nodes = 2;
   size_t output_nodes = 1;
   double output[output_nodes];
 
   MLP *mlp = mlp_init(input_nodes, hidden_nodes, output_nodes);
-  double (*input)[COLS] = read_xor("/home/nick/Programming/perceptron-c/datasets/Xor_Dataset.csv");
-  double *hidden = (double *)malloc(mlp->hidden_nodes * sizeof(double));
 
-  if(!hidden) {
+  double (*input)[COLS] = read_xor("dataset/Xor_Dataset.csv");
+  double *hidden = (double *)malloc(mlp->hidden_nodes * sizeof(double));
+  if (!hidden) {
     fprintf(stderr, "hidden activation malloc failed");
     exit(1);
   }  
 
   mlp_train(mlp, input, hidden, output);
+
   for (int j = 0; j < ROWS; j++) {
     double target = input[j][2];
     mlp_forward(mlp, input[j], hidden, output);
