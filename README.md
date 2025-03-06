@@ -1,5 +1,5 @@
 # xor-perceptron-c
-This is a multilayer perceptron designed for learning the XOR dataset built in the glorious C programming language made by the beautiful Dennis Ritchie.
+A multilayer perceptron designed for learning the XOR dataset built in C.
 
 # What it does
 - Reads XOR dataset and stores it into a 2D array.
