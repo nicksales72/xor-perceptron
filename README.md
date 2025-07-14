@@ -1,5 +1,5 @@
-# xor-perceptron-c
-A multilayer perceptron designed for learning the XOR dataset built in C.
+# xor-perceptron
+A multilayer perceptron designed for learning the XOR dataset.
 
 # What it does
 - Reads XOR dataset and stores it into a 2D array.
